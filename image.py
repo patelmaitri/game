@@ -1,3 +1,7 @@
+import pygame, sys
+
+screen = pygame.display.set_mode((650,1024),pygame.RESIZABLE)
+
 background = pygame.image.load('assets/background.png').convert()
 #background = pygame.transform.scale2x(background)
 
