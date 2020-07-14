@@ -1,6 +1,6 @@
 background = pygame.image.load('assets/background.png').convert()
 #background = pygame.transform.scale2x(background)
-
+#hello
 bomb = pygame.image.load('assets/bomb.png').convert()
 
 ground = pygame.image.load('assets/ground.png').convert()
