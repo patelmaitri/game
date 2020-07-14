@@ -1,10 +1,10 @@
 import pygame, sys
 
-screen = pygame.display.set_mode((650,1024),pygame.RESIZABLE)
+screen = pygame.display.set_mode((632,1024),pygame.RESIZABLE)
 
 background = pygame.image.load('assets/background.png').convert()
 #background = pygame.transform.scale2x(background)
-#hello
+
 bomb = pygame.image.load('assets/bomb.png').convert()
 
 ground = pygame.image.load('assets/ground.png').convert()

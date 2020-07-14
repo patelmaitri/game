@@ -23,8 +23,8 @@ while True:
             sys.exit()
     
     #creating a new surafce on the screen
-    screen.blit(background,(0,0))
-    screen.blit(ground,(0,0))
+    screen.blit(background,(0,0)) #background
+    screen.blit(ground,(-50,400)) #ground
 
     pygame.display.update()
     clock.tick(120)
