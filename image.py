@@ -1,14 +1,28 @@
-background = pygame.image.load('assets/background.png').convert()
-#background = pygame.transform.scale2x(background)
+import pygame, sys, random, time
 
-bomb = pygame.image.load('assets/bomb.png').convert()
+background = pygame.image.load('assets/background.png')
 
-ground = pygame.image.load('assets/ground.png').convert()
+background = pygame.transform.scale(background, (576, 1024))
 
-fly_dino1 = pygame.image.load('assets/1FlyDino.png').convert()
 
-fly_dino2 = pygame.image.load('assets/2FlyDino.png').convert()
+bomb = pygame.image.load('assets/bomb.png')
+bomb = pygame.transform.scale(bomb, (75, 75))
 
-fly_dino3 = pygame.image.load('assets/3FlyDino.png').convert()
+ground = pygame.image.load('assets/ground.png')
 
-fly_dino4 = pygame.image.load('assets/4FlyDino.png').convert()
+
+# ground = pygame.transform.scale(ground, )
+
+fly_dino1 = pygame.image.load('assets/1FlyDino.png')
+fly_dino1 = pygame.transform.scale(fly_dino1, (220, 220))
+fly_dino1 = pygame.transform.flip(fly_dino1, True, False)
+
+dinoMain = pygame.image.load('assets/dino1.png')
+dinoMain = pygame.transform.scale(dinoMain, (300, 200))
+
+
+# fly_dino2 = pygame.image.load('assets/2FlyDino.png').convert()
+
+# fly_dino3 = pygame.image.load('assets/3FlyDino.png').convert()
+
+# fly_dino4 = pygame.image.load('assets/4FlyDino.png').convert()
