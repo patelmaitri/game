@@ -13,6 +13,7 @@ gravity = 0.75
 score = 0
 highScore = 0
 
+ground_x_pos = -50
 
 #GAME LOOP
 while True:
@@ -32,10 +33,11 @@ while True:
 
     
     screen.blit(imag.background, (0,0))
-    screen.blit(imag.ground, (-50, 720))
-    screen.blit(imag.bomb, (400, 900))
-    screen.blit(imag.fly_dino1, (350, 450))
-    screen.blit(imag.dinoMain, (10, 800))
+    ground_x_pos -= 2
+    screen.blit(imag.ground, (ground_x_pos, 720))
+    # screen.blit(imag.bomb, (400, 900))
+    # screen.blit(imag.fly_dino1, (350, 450))
+    # screen.blit(imag.dinoMain, (10, 800))
 
     pygame.display.update()
     clock.tick(120)
