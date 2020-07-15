@@ -2,15 +2,16 @@
 import pygame, sys, random, time
 
 
-background = pygame.image.load('assets/background.png')
 
+background = pygame.image.load('assets/background.png')
 background = pygame.transform.scale(background, (576, 1024))
 
+ground = pygame.image.load('assets/ground.png')
 
 bomb = pygame.image.load('assets/bomb.png')
 bomb = pygame.transform.scale(bomb, (75, 75))
 
-ground = pygame.image.load('assets/ground.png')
+
 
 
 # ground = pygame.transform.scale(ground, )

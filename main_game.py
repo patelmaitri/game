@@ -1,10 +1,17 @@
-
 import pygame, sys, random, time
 import image as imag
 
 pygame.init()
 
 screen = pygame.display.set_mode((576, 1024), pygame.RESIZABLE)
+clock = pygame.time.Clock()
+
+#Game variables
+dinoMovement = 0
+gravity = 0.75
+
+score = 0
+highScore = 0
 
 
 #GAME LOOP
@@ -15,6 +22,11 @@ while True:
             #Ends the game properly
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                dinoMovement = 0
+                dinoMovement = -12
+
     
 
 
@@ -26,3 +38,4 @@ while True:
     screen.blit(imag.dinoMain, (10, 800))
 
     pygame.display.update()
+    clock.tick(120)
