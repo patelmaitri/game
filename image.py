@@ -24,6 +24,8 @@ dinoMain = pygame.image.load('assets/dino1.png')
 dinoMain = pygame.transform.scale(dinoMain, (300, 200))
 
 
+
+
 # fly_dino2 = pygame.image.load('assets/2FlyDino.png').convert()
 
 # fly_dino3 = pygame.image.load('assets/3FlyDino.png').convert()

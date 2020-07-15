@@ -43,6 +43,10 @@ bomb_list = []
 SPAWNBOMB = pygame.USEREVENT
 pygame.time.set_timer(SPAWNBOMB, 4500)
 
+game_theme = pygame.mixer.music.load('Sounds/DinoTheme.mp3')
+time.sleep(2)
+pygame.mixer.music.play()
+
 #GAME LOOP
 while True:
     #Event loop - NEEDED IN ANY GAME
@@ -65,7 +69,7 @@ while True:
     screen.blit(imag.background, (0,0))
     ground_x_pos -= 2
     draw_ground()
-    if ground_x_pos <= -576:
+    if ground_x_pos <= -500:
         ground_x_pos = 0
 
     bomb_list = bomb_movment(bomb_list)
