@@ -48,6 +48,17 @@ dino2 = pygame.transform.scale((pygame.image.load('assets/dino2.png').convert_al
 dino3 = pygame.transform.scale((pygame.image.load('assets/dino3.png').convert_alpha()),(250,150))
 dino4 = pygame.transform.scale((pygame.image.load('assets/dino4.png').convert_alpha()),(250,150))
 
+rain1 = pygame.image.load('assets/Rain1.png').convert_alpha()
+rain1 = pygame.transform.scale(rain1, (576, 1024))
+
+rain2 = pygame.image.load('assets/Rain2.png').convert_alpha()
+rain2 = pygame.transform.scale(rain2, (576, 1024))
+
+rain3 = pygame.image.load('assets/Rain3.png').convert_alpha()
+rain3 = pygame.transform.scale(rain2, (576, 1024))
+
+
+
 dino_frames = [dino1,dino2,dino3,dino4]
 dino_index = 2
 dino_surface = dino_frames[dino_index]
@@ -96,6 +107,7 @@ while True:
     screen.blit(dino_surface, dino_rect)
     bomb_list = bomb_movment(bomb_list)
     draw_bombs(bomb_list)
+    screen.blit(rain1, (0,0))
 
     # screen.blit(imag.bomb, (400, 900))
     # screen.blit(imag.fly_dino1, (350, 450))
