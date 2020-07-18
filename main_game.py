@@ -17,9 +17,8 @@ def draw_fly_dino(fdinos):
 
 def draw_ground():
     #-50,720
-    526
-    screen.blit(imag.ground, (ground_x_pos, 720))
-    screen.blit(imag.ground, (ground_x_pos + 679, 720))
+    screen.blit(imag.ground, (ground_x_pos, 760))
+    screen.blit(imag.ground, (ground_x_pos + 615, 760))
 
 def create_bomb():
     new_bomb = imag.bomb.get_rect(midbottom = (585, 1000))
@@ -51,7 +50,7 @@ gravity = 0.75
 score = 0
 highScore = 0
 
-ground_x_pos = -50
+ground_x_pos = 0
 
 bomb_list = []
 SPAWNBOMB = pygame.USEREVENT
@@ -72,9 +71,9 @@ dino_frames = [dino1,dino2,dino3,dino4]
 dino_index = 2
 dino_surface = dino_frames[dino_index]
 dino_rect = dino_surface.get_rect(center = (125,900))
-
-game_theme = pygame.mixer.music.load('Sounds/nishat.mp3')
-pygame.mixer.music.play()
+#
+# game_theme = pygame.mixer.music.load('Sounds/nishat.mp3')
+# pygame.mixer.music.play()
 
 DINOWALK = pygame.USEREVENT + 1
 pygame.time.set_timer(DINOWALK, 200)
@@ -114,8 +113,8 @@ while True:
 
     draw_ground()
 
-    if ground_x_pos <= -679:
-        ground_x_pos = -50
+    if ground_x_pos <= -615:
+        ground_x_pos = 0
     screen.blit(dino_surface, dino_rect)
     bomb_list = bomb_movment(bomb_list)
     draw_bombs(bomb_list)
