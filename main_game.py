@@ -27,9 +27,9 @@ pygame.time.set_timer(SPAWNFLYDINO, 32000)
 DINOWALK = pygame.USEREVENT + 1
 pygame.time.set_timer(DINOWALK, 200)
 
-game_theme = pygame.mixer.music.load('nishat.mp3')
-time.sleep(2)
-pygame.mixer.music.play()
+# game_theme = pygame.mixer.music.load('nishat.mp3')
+# time.sleep(2)
+# pygame.mixer.music.play()
 
 # game_theme = pygame.mixer.music.load('Sounds/DinoTheme.mp3')
 # time.sleep(2)
