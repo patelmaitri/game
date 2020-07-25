@@ -34,11 +34,12 @@ def dino_animation():
     new_dino_rect = new_dino.get_rect(center= (125, dino_rect.centery))
     return new_dino,new_dino_rect
 
-
+ranchoice = [400, 600, 700, 752]
 fly_dino_frames = [imag.fly_dino1,imag.fly_dino2,imag.fly_dino3,imag.fly_dino4]
 fly_dino_index = 0
 fly_dino_surface = fly_dino_frames[fly_dino_index]
-flyx = 900
+flyx = random.choice(ranchoice)
+
 fly_dino_height = [200, 400]
 # fly_dino_rect = fly_dino_surface.get_rect(center = (flyx,550))
 
