@@ -23,11 +23,11 @@ dino4 = pygame.transform.scale(pygame.image.load('assets/dino4.png'),(250,150))
 fly_dino1 = pygame.transform.scale(pygame.image.load('assets/1FlyDino.png'),(220, 220))
 fly_dino1 = pygame.transform.flip(fly_dino1, True, False)
 
-fly_dino2 = pygame.transform.scale(pygame.image.load('assets/2FlyDino.png'), (220, 220))
+fly_dino2 = pygame.transform.scale(pygame.image.load('assets/2FlyDino.png'),(220, 220))
 fly_dino2 = pygame.transform.flip(fly_dino2, True, False)
 
-fly_dino3 = pygame.transform.scale(pygame.image.load('assets/3FlyDino.png'), (220, 220))
+fly_dino3 = pygame.transform.scale(pygame.image.load('assets/3FlyDino.png'),(220, 220))
 fly_dino3 = pygame.transform.flip(fly_dino3, True, False)
 
-fly_dino4 = pygame.transform.scale(pygame.image.load('assets/4FlyDino.png'), (220, 220))
+fly_dino4 = pygame.transform.scale(pygame.image.load('assets/4FlyDino.png'),(220, 220))
 fly_dino4 = pygame.transform.flip(fly_dino4, True, False)
