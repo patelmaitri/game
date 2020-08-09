@@ -34,11 +34,11 @@ def dino_animation():
     new_dino_rect = new_dino.get_rect(center= (125, dino_rect.centery))
     return new_dino,new_dino_rect
 
-ranchoice = [400, 600, 700, 752]
+fly_dino_x_list = [400, 600, 700, 752]
 fly_dino_frames = [imag.fly_dino1,imag.fly_dino2,imag.fly_dino3,imag.fly_dino4]
 fly_dino_index = 0
 fly_dino_surface = fly_dino_frames[fly_dino_index]
-flyx = random.choice(ranchoice)
+flyx = 500
 
 fly_dino_height = [200, 400]
 # fly_dino_rect = fly_dino_surface.get_rect(center = (flyx,550))
@@ -54,9 +54,10 @@ def draw_flydino():
         # imag.screen.blit(imag.fly_dino1, fdino)
         # imag.screen.blit(fly_dino_surface, (400, 600))
     imag.screen.blit(fly_dino_animation(), (flyx, 100))
-    imag.screen.blit(fly_dino_animation(), (flyx + 900, 200))
+    imag.screen.blit(fly_dino_animation(), (flyx+900, 100))
+    # imag.screen.blit(fly_dino_animation(), (flyx + create_fly_dino(), 200))
 
 def create_fly_dino():
-
-    new_fly_dino = fly_dino_animation().get_rect(midtop = (700, 700))
-    return new_fly_dino
+    fly_dino_random = random.choice(fly_dino_x_list)
+    # new_fly_dino = fly_dino_animation().get_rect(midtop = (700, 700))
+    return fly_dino_random
