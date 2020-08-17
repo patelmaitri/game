@@ -15,23 +15,22 @@ highScore = 0
 
 #bomb
 bomb_list = []
+
 SPAWNBOMB = pygame.USEREVENT
-for x in range(10):
-    numb = random.randint(1000,1500)
-    print(numb)
 
 print("FINAL RAND")   
-print(numb)
-pygame.time.set_timer(SPAWNBOMB, numb)
+
+pygame.time.set_timer(SPAWNBOMB, random.randint(2300, 15000))
 # pygame.time.set_timer(SPAWNBOMB, 1800)
+
 
 #flying Dino
 fly_dino_list = []
-SPAWNFLYDINO = pygame.USEREVENT
+SPAWNFLYDINO = pygame.USEREVENT + 1
 pygame.time.set_timer(SPAWNFLYDINO, 3200)
 
 #player dino
-DINOWALK = pygame.USEREVENT + 1
+DINOWALK = pygame.USEREVENT + 2
 pygame.time.set_timer(DINOWALK, 200)
 
 # game_theme = pygame.mixer.music.load('Sounds/Nishat.mp3')
@@ -75,6 +74,7 @@ while True:
     # pygame.time.set_timer(SPAWNBOMB, numb)
         if event.type == SPAWNBOMB:
             bomb_list.append(method.create_bomb())
+            pygame.time.set_timer(SPAWNBOMB, random.randint(2300, 15000))
 
         #spawing dino
         if event.type == SPAWNFLYDINO:
