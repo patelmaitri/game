@@ -1,5 +1,7 @@
 import pygame
 
+
+
 screen = pygame.display.set_mode((576, 1024), pygame.RESIZABLE)
 
 #background

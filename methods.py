@@ -15,6 +15,17 @@ def draw_bombs(bombs):
     for bomb in bombs:
         imag.screen.blit(imag.bomb_img, bomb)
 
+def check_collision(bombs):
+    for bomb in bombs:
+        if dino_rect.colliderect(bomb):
+            print("Collided")
+            #return False
+        else:
+            print("Not Collided")
+
+ 
+
+    return True
 
 #ground
 ground_x_pos = -50
@@ -38,7 +49,7 @@ fly_dino_x_list = [400, 600, 700, 752]
 fly_dino_frames = [imag.fly_dino1,imag.fly_dino2,imag.fly_dino3,imag.fly_dino4]
 fly_dino_index = 0
 fly_dino_surface = fly_dino_frames[fly_dino_index]
-flyx = 500
+flyx = 600
 
 fly_dino_height = [200, 400]
 # fly_dino_rect = fly_dino_surface.get_rect(center = (flyx,550))
