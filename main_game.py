@@ -7,18 +7,38 @@ pygame.init()
 
 #game variables
 dinoMovement = 0
-gravity = 0.75
+gravity = 1.0
 
 #score
+
+game_active = True
 score = 0
-highScore = 0
+high_score = 0
+
+pygame.init()
+def score_display(game_state):
+    if game_state == 'main_game':
+        score_surface = game_font.render(str(int(score)),True,(255,255,255))
+        score_rect = score_surface.get_rect(center = (288,100))
+        imag.screen.blit(score_surface,score_rect)
+    if game_state == 'game_over':
+        score_surface = game_font.render(f'Score: {int(score)}', True,(255,255,255))
+        score_rect = score_surface.get_rect(center = (288, 100))
+        imag.screen.blit(score_surface,score_rect)
+
+        high_score_surface = game_font.render(f'High score: {int(high_score)}', True,(255,255,255))
+        high_score_rect = high_score_surface.get_rect(center = (288, 500))
+        imag.screen.blit(high_score_surface,high_score_rect)
+
+def update_score(score, high_score):
+    if score > high_score:
+        high_score = score
+    return high_score
 
 #bomb
 bomb_list = []
 SPAWNBOMB = pygame.USEREVENT
-jack = random.randint(1200,5000)
-pygame.time.set_timer(SPAWNBOMB,jack )
-print(jack)
+pygame.time.set_timer(SPAWNBOMB, random.randint(4000,9000))
 # pygame.time.set_timer(SPAWNBOMB, 1800)
 
 #flying Dino
@@ -41,7 +61,7 @@ pygame.time.set_timer(DINOWALK, 200)
 # screen = pygame.display.set_mode((576, 1024), pygame.RESIZABLE)
 clock = pygame.time.Clock()
 
-
+game_font = pygame.font.Font('assets/04B_19.ttf', 40)
 #GAME LOOP
 while True:
     #Event loop - NEEDED IN ANY GAME
@@ -51,10 +71,16 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if method.dino_rect.centery == 900:
-                if event.key == pygame.K_SPACE:
+            if method.dino_rect.centery == 850:
+                if event.key == pygame.K_SPACE and game_active:
                     dinoMovement = 0
                     dinoMovement -= 16
+                if event.key == pygame.K_SPACE and game_active == False:
+                    game_active = True
+                    bomb_list.clear()
+                    dinoMovement = 0
+                    score = 0
+
 
         if event.type == DINOWALK:
             if method.dino_index < 3:
@@ -69,6 +95,7 @@ while True:
 
         if event.type == SPAWNBOMB:
             bomb_list.append(method.create_bomb())
+            pygame.time.set_timer(SPAWNBOMB, random.randint(4000,9000))
 
         if event.type == FLYDINOWALK:
             # fly_dino_list.append(method.create_fly_dino())
@@ -86,6 +113,7 @@ while True:
     method.flyx -=5
     #screen.blit(imag.ground, (ground_x_pos, 720))
 
+
     method.draw_ground()
     method.draw_flydino()
 
@@ -95,20 +123,27 @@ while True:
     if method.flyx <= -1200:
         method.flyx = 500
 
-    imag.screen.blit(method.dino_surface, method.dino_rect)
-    bomb_list = method.bomb_movment(bomb_list)
-    method.draw_bombs(bomb_list)
-
-
-    dinoMovement += gravity
-    method.dino_rect.centery += dinoMovement
-
-    if method.dino_rect.centery > 900:
-        method.dino_rect.centery = 900
-
     # bomb_list = method.bomb_movment(bomb_list)
     # method.draw_bombs(bomb_list)
+    if game_active:
+        dinoMovement += gravity
+        method.dino_rect.centery += dinoMovement
+        game_active = method.check_collision(bomb_list)
 
-    method.check_collision(bomb_list)
+        if method.dino_rect.centery > 850:
+            method.dino_rect.centery = 850
+
+        imag.screen.blit(method.dino_surface, method.dino_rect)
+        bomb_list = method.bomb_movment(bomb_list)
+        method.draw_bombs(bomb_list)
+
+        score += 0.1
+        score_display('main_game')
+    else:
+        imag.screen.blit(imag.game_over_surface,imag.game_over_rect)
+        high_score = update_score(score,high_score)
+        score_display('game_over')
+
+
     pygame.display.update()
     clock.tick(120)

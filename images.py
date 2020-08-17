@@ -1,4 +1,4 @@
-import pygame
+import pygame, neat
 
 screen = pygame.display.set_mode((576, 1024), pygame.RESIZABLE)
 
@@ -32,3 +32,7 @@ fly_dino3 = pygame.transform.flip(fly_dino3, True, False)
 
 fly_dino4 = pygame.transform.scale(pygame.image.load('assets/4FlyDino.png'), (220, 220))
 fly_dino4 = pygame.transform.flip(fly_dino4, True, False)
+
+game_over_surface = pygame.image.load('assets/message.png')
+game_over_surface = pygame.transform.scale2x(game_over_surface)
+game_over_rect = game_over_surface.get_rect(center = (288,512))

@@ -1,4 +1,4 @@
-import random
+import random, sys
 
 import images as imag
 
@@ -22,8 +22,8 @@ def draw_flydino():
     # for fdino in fdinos:
         # imag.screen.blit(imag.fly_dino1, fdino)
         # imag.screen.blit(fly_dino_surface, (400, 600))
-    imag.screen.blit(fly_dino_animation(), (flyx, 750))
-    imag.screen.blit(fly_dino_animation(), (flyx+900, 750))
+    imag.screen.blit(fly_dino_animation(), (flyx, 200))
+    imag.screen.blit(fly_dino_animation(), (flyx+900, 200))
     # imag.screen.blit(fly_dino_animation(), (flyx + create_fly_dino(), 200))
 
 def fly_dino_animation():
@@ -32,29 +32,27 @@ def fly_dino_animation():
     return fly_new_dino
 
 def create_bomb():
-    new_bomb = imag.bomb_img.get_rect(midbottom = (585, 1030))
+    new_bomb = imag.bomb_img.get_rect(midbottom = (585, 1010))
     return new_bomb
 
 def bomb_movment(bombs):
     for bomb in bombs:
-        bomb.centerx -= 10
+        bomb.centerx -= 13
     return bombs
 
 def draw_bombs(bombs):
     for bomb in bombs:
         imag.screen.blit(imag.bomb_img, bomb)
 
+#ground
+health = 100
+
 def check_collision(bombs):
+    global health
     for bomb in bombs:
         if dino_rect.colliderect(bomb):
-            print("Collided")
-            #return False
-        else:
-            print("Not Collided")
-
+            return False
     return True
-
-#ground
 ground_x_pos = 0
 
 def draw_ground():
@@ -65,7 +63,7 @@ def draw_ground():
 dino_frames = [imag.dino1,imag.dino2,imag.dino3,imag.dino4]
 dino_index = 0
 dino_surface = dino_frames[dino_index]
-dino_rect = dino_surface.get_rect(center = (95,900))
+dino_rect = dino_surface.get_rect(center = (95,850))
 
 #pygame.Rect(width,height,x,y) (30:30) video flappy
 
